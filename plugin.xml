@@ -1,12 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-jshare-weibo" version="1.0.0" 
-    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+<plugin id="cordova-plugin-jshare-weibo" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>JShareWeibo</name>
     <js-module name="JShareWeibo" src="www/JShareWeibo.js">
         <clobbers target="cordova.plugins.JShareWeibo" />
     </js-module>
-    
+
+    <!--添加jcore依赖-->
+    <dependency id="cordova-plugin-jshare" />
+
     <preference name="WEIBO_APPKEY" />
     <preference name="WEIBO_APPSECRET" />
     <preference name="WEIBO_REDIRECT_URL" />
@@ -21,7 +24,6 @@
             <preference name="WEIBO_REDIRECT_URL" value="$WEIBO_REDIRECT_URL" />
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml" />
-        <source-file src="src/android/JShareWeibo.java" target-dir="src/com/zgwit/jshare" />
         <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
     </platform>
     <platform name="ios">
