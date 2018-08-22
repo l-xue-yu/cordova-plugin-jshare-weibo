@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-jshare-weibo" version="1.0.0" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>JShareWeibo</name>
+    <js-module name="JShareWeibo" src="www/JShareWeibo.js">
+        <clobbers target="cordova.plugins.JShareWeibo" />
+    </js-module>
+    
+    <preference name="WEIBO_APPKEY" />
+    <preference name="WEIBO_APPSECRET" />
+    <preference name="WEIBO_REDIRECT_URL" />
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="JShareWeibo">
+                <param name="android-package" value="com.zgwit.jshare.JShareWeibo" />
+            </feature>
+            <preference name="WEIBO_APPKEY" value="$WEIBO_APPKEY" />
+            <preference name="WEIBO_APPSECRET" value="$WEIBO_APPSECRET" />
+            <preference name="WEIBO_REDIRECT_URL" value="$WEIBO_REDIRECT_URL" />
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <source-file src="src/android/JShareWeibo.java" target-dir="src/com/zgwit/jshare" />
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="JShareWeibo">
+                <param name="ios-package" value="JShareWeibo" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/JShareWeibo.m" />
+    </platform>
+</plugin>
